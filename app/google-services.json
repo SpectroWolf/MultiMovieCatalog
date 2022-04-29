@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "590247675972",
+    "project_id": "multi-movie-catalog",
+    "storage_bucket": "multi-movie-catalog.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:590247675972:android:36d22d82797184b7ccd411",
+        "android_client_info": {
+          "package_name": "com.multilaser.multimoviecatalog"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "590247675972-vnaf7ap2e5c4c2dc1ob5jmgobog53qs5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVPND9sU4ZdlK_Z393IEswIWAgP6yQJ6w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "590247675972-vnaf7ap2e5c4c2dc1ob5jmgobog53qs5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
