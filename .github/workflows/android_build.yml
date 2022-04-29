@@ -10,6 +10,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Write Permission for Gradlew
+        run: chmod +x ./gradlew
       - name: Set Up JDK
         uses: actions/setup-java@v1
         with:
