@@ -18,6 +18,7 @@ class MainViewModel(private val repository: Repository) : ViewModel() {
     val terrorSuspenseMovieList: MutableLiveData<Response<MovieList>> = MutableLiveData()
     val actionAdventureMovieList: MutableLiveData<Response<MovieList>> = MutableLiveData()
     val sciFiMovieList: MutableLiveData<Response<MovieList>> = MutableLiveData()
+    val recommendationsList: MutableLiveData<Response<MovieList>> = MutableLiveData()
 
     fun getPopularMovieList() {
         viewModelScope.launch {
@@ -65,6 +66,13 @@ class MainViewModel(private val repository: Repository) : ViewModel() {
         viewModelScope.launch {
             val response = repository.getMovieByGenre(id)
             sciFiMovieList.value = response
+        }
+    }
+
+    fun getRecommendations(id: String) {
+        viewModelScope.launch {
+            val response = repository.getRecommendations(id)
+            recommendationsList.value = response
         }
     }
 

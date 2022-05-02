@@ -68,7 +68,7 @@
                         android:layout_weight="1"
                         android:background="@color/white_grey"
                         android:hint="@string/busca"
-                        android:imeOptions="actionSend"
+                        android:imeOptions="actionDone"
                         android:inputType="textImeMultiLine"
                         android:padding="10dp"
                         android:textColor="@color/black"

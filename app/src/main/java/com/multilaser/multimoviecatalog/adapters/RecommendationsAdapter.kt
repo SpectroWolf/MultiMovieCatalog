@@ -10,12 +10,11 @@ import com.bumptech.glide.Glide
 import com.multilaser.multimoviecatalog.R
 import com.multilaser.multimoviecatalog.models.Movie
 import com.multilaser.multimoviecatalog.ui.MovieDetails
-import com.multilaser.multimoviecatalog.utils.Constants
+import com.multilaser.multimoviecatalog.utils.Constants.Companion.POSTER_BASE_URL
 import kotlinx.android.synthetic.main.movie_item.view.*
-import kotlinx.android.synthetic.main.movie_item_search.view.*
 
-class SearchedMovieAdapter(private val context: Context) :
-    RecyclerView.Adapter<SearchedMovieAdapter.ViewHolder>() {
+class RecommandationsAdapter(private val context: Context) :
+    RecyclerView.Adapter<RecommandationsAdapter.MovieViewHolder>() {
 
     var movies = ArrayList<Movie>()
 
@@ -23,11 +22,9 @@ class SearchedMovieAdapter(private val context: Context) :
         this.movies = data
     }
 
-    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        fun bindMovies(data: Movie, context: Context) {
-            var genre = ""
+    class MovieViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        fun bindTopRatedMovie(data: Movie, context: Context) {var genre = ""
             val genres: List<Int> = data.genre_ids
-            var year: String? = data.release_date
             var genresName = ""
 
             for (i in genres) {
@@ -61,17 +58,11 @@ class SearchedMovieAdapter(private val context: Context) :
 
             }
 
-
-            itemView.tv_movie_search_title.text = data.title
-            itemView.tv_movie_search_genre.text = genresName
-
-            if (!year.isNullOrEmpty()) {
-                itemView.tv_movie_search_year.text =
-                    year.substring(0, 4)
-            }
+            itemView.tv_movie_item_movie_title.text = data.title
+            itemView.tv_movie_item_genres.text = genresName
             Glide.with(itemView)
-                .load(Constants.POSTER_BASE_URL + data.poster_path)
-                .into(itemView.movie_poster_search)
+                .load(POSTER_BASE_URL + data.poster_path)
+                .into(itemView.iv_movie_poster)
 
             itemView.setOnClickListener {
                 val intent = Intent(context, MovieDetails::class.java)
@@ -81,15 +72,15 @@ class SearchedMovieAdapter(private val context: Context) :
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view =
-            LayoutInflater.from(parent.context).inflate(R.layout.movie_item_search, parent, false)
-        return ViewHolder(view)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.movie_item, parent, false)
+        return MovieViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bindMovies(movies[position], context)
+    override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
+        holder.bindTopRatedMovie(movies[position], context)
     }
 
     override fun getItemCount(): Int = movies.size
+
 }

@@ -79,10 +79,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
-                        android:textColor="@color/black"
                         android:maxLines="2"
+                        android:textColor="@color/black"
                         android:textSize="18sp"
-                        tools:text="Ação, Aventura, Thriller, Sci_fi"/>
+                        tools:text="Ação, Aventura, Thriller, Sci_fi" />
 
                     <TextView
                         android:id="@+id/tv_movie_details_release_date"
@@ -92,7 +92,6 @@
                         android:textColor="@color/black"
                         android:textSize="16sp"
                         tools:text="2022" />
-
 
 
                 </LinearLayout>
@@ -144,13 +143,28 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
                 android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:justificationMode="inter_word"
                 android:textColor="@color/black"
                 android:textSize="18sp"
-                android:justificationMode="inter_word"
                 tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales diam eu leo feugiat dapibus. Aliquam sit amet purus ac tellus porttitor tristique. Phasellus et elementum diam. Proin augue turpis, iaculis semper quam vitae, interdum rhoncus purus. Nulla nec elementum tellus, non sagittis augue. Sed bibendum efficitur elit id tincidunt. Nulla ac semper purus. Praesent consequat purus vel sodales molestie. Donec massa quam, consectetur a risus et, auctor iaculis dolor. Nulla vehicula molestie nulla, a eleifend odio volutpat porttitor" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/recommendations"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_recommendations"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

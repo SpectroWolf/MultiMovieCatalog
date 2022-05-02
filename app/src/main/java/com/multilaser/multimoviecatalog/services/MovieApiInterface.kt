@@ -24,4 +24,7 @@ interface MovieApiInterface {
 
     @GET("discover/movie$API_KEY")
     suspend fun getMovieByGenres(@Query("with_genres") id: String): Response<MovieList>
+
+    @GET("movie/{movie_id}/recommendations$API_KEY")
+    suspend fun getRecommendations(@Path("movie_id") id: String): Response<MovieList>
 }

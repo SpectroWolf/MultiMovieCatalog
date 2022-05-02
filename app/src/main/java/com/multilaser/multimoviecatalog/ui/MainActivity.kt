@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.inputmethod.EditorInfo
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -62,6 +63,26 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun searchMovie() {
+
+        et_main_search.setOnEditorActionListener{ _, actionId, _ ->
+            if (actionId == EditorInfo.IME_ACTION_DONE) {
+                val search = et_main_search.text.toString()
+                if (search.isBlank()) {
+                    Toast.makeText(
+                        this,
+                        "Digite um filme para buscar.",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                } else {
+
+                    val intent = Intent(this, SearchedMovie::class.java)
+                    intent.putExtra("search", search)
+                    startActivity(intent)
+                }
+                true
+            }
+            false
+        }
 
         btn_main_search.setOnClickListener {
             val search = et_main_search.text.toString()

@@ -27,4 +27,8 @@ class Repository {
     suspend fun getMovieByGenre(id: String): Response<MovieList> {
         return RetrofitInstance.api.getMovieByGenres(id)
     }
+
+    suspend fun getRecommendations(id: String): Response<MovieList> {
+        return RetrofitInstance.api.getRecommendations(id)
+    }
 }

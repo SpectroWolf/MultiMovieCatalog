@@ -3,14 +3,20 @@ package com.multilaser.multimoviecatalog.ui
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.multilaser.multimoviecatalog.R
+import com.multilaser.multimoviecatalog.adapters.PopularMoviesAdapter
+import com.multilaser.multimoviecatalog.adapters.RecommandationsAdapter
 import com.multilaser.multimoviecatalog.models.Movie
 import com.multilaser.multimoviecatalog.repository.Repository
 import com.multilaser.multimoviecatalog.utils.Constants
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.movies_details.*
 import kotlinx.android.synthetic.main.toolbar.*
 import retrofit2.Response
@@ -18,6 +24,7 @@ import retrofit2.Response
 class MovieDetails : AppCompatActivity() {
 
     private lateinit var viewModel: MainViewModel
+    private lateinit var recommandationsAdapter: RecommandationsAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,9 +49,18 @@ class MovieDetails : AppCompatActivity() {
             progress_bar_main.visibility = View.GONE
         })
 
+        initRecycler()
+
     }
 
-    @SuppressLint("SetTextI18n")
+    private fun initRecycler() {
+        rv_recommendations.layoutManager =
+            LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
+        recommandationsAdapter = RecommandationsAdapter(this)
+        rv_recommendations.adapter = recommandationsAdapter
+    }
+
+    @SuppressLint("SetTextI18n", "NotifyDataSetChanged")
     private fun bindMovieDetails(movie: Response<Movie>) {
 
         val runtime = movie.body()?.runtime
@@ -69,7 +85,10 @@ class MovieDetails : AppCompatActivity() {
         aux = 0
 
         tv_movie_details_title.text = movie.body()?.title
-        tv_movie_details_release_date.text = movie.body()?.release_date?.substring(0, 4)
+
+        if (!movie.body()?.release_date.isNullOrEmpty()) {
+            tv_movie_details_release_date.text = movie.body()?.release_date?.substring(0, 4)
+        }
         tv_movie_rating_details.text = movie.body()?.vote_average
         tv_movie_overview.text = movie.body()?.overview
         tv_movie_details_genre.text = genreNames
@@ -84,6 +103,20 @@ class MovieDetails : AppCompatActivity() {
             .load(Constants.POSTER_BASE_URL + movie.body()?.backdrop_path)
             .apply(RequestOptions.centerCropTransform())
             .into(iv_movie_details_poster_full)
+
+        movie.body()?.id?.let { viewModel.getRecommendations(it) }
+        viewModel.recommendationsList.observe(this, { response ->
+            if (response.isSuccessful) {
+                recommandationsAdapter.setMovieList(response.body()?.movie_list as ArrayList<Movie>)
+                recommandationsAdapter.notifyDataSetChanged()
+            } else {
+                Toast.makeText(
+                    this@MovieDetails,
+                    "Erro ao buscar Filmes Recomendados",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        })
 
     }
 
