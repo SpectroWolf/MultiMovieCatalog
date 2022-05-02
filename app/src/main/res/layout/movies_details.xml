@@ -75,23 +75,25 @@
                         tools:text="Nome do Filme" />
 
                     <TextView
-                        android:id="@+id/tv_movie_details_release_date"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16sp"
-                        android:textColor="@color/black"
-                        android:textSize="18sp"
-                        tools:text="2022" />
-
-                    <TextView
                         android:id="@+id/tv_movie_details_genre"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
                         android:textColor="@color/black"
                         android:maxLines="2"
-                        android:textSize="16sp"
+                        android:textSize="18sp"
                         tools:text="Ação, Aventura, Thriller, Sci_fi"/>
+
+                    <TextView
+                        android:id="@+id/tv_movie_details_release_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16sp"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        tools:text="2022" />
+
+
 
                 </LinearLayout>
 
