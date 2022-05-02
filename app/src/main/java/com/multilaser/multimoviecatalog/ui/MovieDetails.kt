@@ -73,7 +73,7 @@ class MovieDetails : AppCompatActivity() {
         tv_movie_rating_details.text = movie.body()?.vote_average
         tv_movie_overview.text = movie.body()?.overview
         tv_movie_details_genre.text = genreNames
-        tv_runtime_details.text = runtimeHours.toString() + ":" + runtimeMinutes.toString() + "h"
+        tv_runtime_details.text = runtimeHours.toString() + "h " + runtimeMinutes.toString() + "m"
 
         Glide.with(iv_movie_details_poster)
             .load(Constants.POSTER_BASE_URL + movie.body()?.poster_path)
