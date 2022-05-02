@@ -64,25 +64,15 @@
                 android:textSize="14sp"
                 tools:text="Ação, Aventura, Comédia, Terror, Scifi" />
 
-            <LinearLayout
+            <TextView
+                android:id="@+id/tv_movie_search_year"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:textSize="12sp"
+                tools:text="2022" />
 
-                <TextView
-                    android:id="@+id/movie_rating_search"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:textSize="12sp"
-                    tools:text="3,9" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="2dp"
-                    android:src="@drawable/ic_baseline_star_rate_12" />
-            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

@@ -24,8 +24,46 @@ class SearchedMovieAdapter(private val context: Context) :
     }
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        fun bindMovies(data: Movie, context: Context) {
-            itemView.tv_movie_item_movie_title.text = data.title
+        fun bindMovies(data: Movie, context: Context) {var genre = ""
+            val genres: List<Int> = data.genre_ids
+            var year: String? = data.release_date
+            var genresName = ""
+
+            for (i in genres) {
+
+                when (i) {
+                    28 -> genre = "Action"
+                    12 -> genre = "Adventure"
+                    16 -> genre = "Animation"
+                    35 -> genre = "Comedy"
+                    80 -> genre = "Crime"
+                    99 -> genre = "Documentary"
+                    18 -> genre = "Drama"
+                    10751 -> genre = "Family"
+                    14 -> genre = "Fantasy"
+                    36 -> genre = "History"
+                    27 -> genre = "Horror"
+                    10402 -> genre = "Music"
+                    9648 -> genre = "Mystery"
+                    10749 -> genre = "Romance"
+                    878 -> genre = "Sci-Fi"
+                    10770 -> genre = "TV Movie"
+                    53 -> genre = "Thriller"
+                    10752 -> genre = "War"
+                    37 -> genre = "Western"
+                }
+
+                genresName = if (genresName.isBlank()) {
+                    genre
+                } else
+                    "$genresName, $genre"
+
+            }
+
+
+            itemView.tv_movie_search_title.text = data.title
+            itemView.tv_movie_search_genre.text = genresName
+            itemView.tv_movie_search_year.text = year?.substring(0,4)
             Glide.with(itemView)
                 .load(Constants.POSTER_BASE_URL + data.poster_path)
                 .into(itemView.movie_poster_search)
