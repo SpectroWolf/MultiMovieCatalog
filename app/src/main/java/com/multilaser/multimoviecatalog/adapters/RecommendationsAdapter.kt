@@ -13,8 +13,8 @@ import com.multilaser.multimoviecatalog.ui.MovieDetails
 import com.multilaser.multimoviecatalog.utils.Constants.Companion.POSTER_BASE_URL
 import kotlinx.android.synthetic.main.movie_item.view.*
 
-class RecommandationsAdapter(private val context: Context) :
-    RecyclerView.Adapter<RecommandationsAdapter.MovieViewHolder>() {
+class RecommendationsAdapter(private val context: Context) :
+    RecyclerView.Adapter<RecommendationsAdapter.MovieViewHolder>() {
 
     var movies = ArrayList<Movie>()
 

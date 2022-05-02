@@ -11,8 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.multilaser.multimoviecatalog.R
-import com.multilaser.multimoviecatalog.adapters.PopularMoviesAdapter
-import com.multilaser.multimoviecatalog.adapters.RecommandationsAdapter
+import com.multilaser.multimoviecatalog.adapters.RecommendationsAdapter
 import com.multilaser.multimoviecatalog.models.Movie
 import com.multilaser.multimoviecatalog.repository.Repository
 import com.multilaser.multimoviecatalog.utils.Constants
@@ -24,7 +23,7 @@ import retrofit2.Response
 class MovieDetails : AppCompatActivity() {
 
     private lateinit var viewModel: MainViewModel
-    private lateinit var recommandationsAdapter: RecommandationsAdapter
+    private lateinit var recommendationsAdapter: RecommendationsAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,8 +55,8 @@ class MovieDetails : AppCompatActivity() {
     private fun initRecycler() {
         rv_recommendations.layoutManager =
             LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
-        recommandationsAdapter = RecommandationsAdapter(this)
-        rv_recommendations.adapter = recommandationsAdapter
+        recommendationsAdapter = RecommendationsAdapter(this)
+        rv_recommendations.adapter = recommendationsAdapter
     }
 
     @SuppressLint("SetTextI18n", "NotifyDataSetChanged")
@@ -107,8 +106,8 @@ class MovieDetails : AppCompatActivity() {
         movie.body()?.id?.let { viewModel.getRecommendations(it) }
         viewModel.recommendationsList.observe(this, { response ->
             if (response.isSuccessful) {
-                recommandationsAdapter.setMovieList(response.body()?.movie_list as ArrayList<Movie>)
-                recommandationsAdapter.notifyDataSetChanged()
+                recommendationsAdapter.setMovieList(response.body()?.movie_list as ArrayList<Movie>)
+                recommendationsAdapter.notifyDataSetChanged()
             } else {
                 Toast.makeText(
                     this@MovieDetails,
