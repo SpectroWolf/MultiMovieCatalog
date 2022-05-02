@@ -56,13 +56,13 @@ class SearchedMovie : AppCompatActivity() {
             } else {
                 Toast.makeText(
                     this,
-                    "Error on search.",
+                    "Erro ao buscar.",
                     Toast.LENGTH_SHORT
                 ).show()
             }
         })
 
-        tv_search.text = "Results for \"$search\""
+        tv_search.text = "Resultados para \"$search\""
     }
 
 

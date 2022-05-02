@@ -129,7 +129,7 @@ class MainActivity : AppCompatActivity() {
             } else {
                 Toast.makeText(
                     this@MainActivity,
-                    "Erro ao buscar Filmes Mias Avaliados.",
+                    "Erro ao buscar Filmes Melhores Avaliados.",
                     Toast.LENGTH_SHORT
                 ).show()
             }
