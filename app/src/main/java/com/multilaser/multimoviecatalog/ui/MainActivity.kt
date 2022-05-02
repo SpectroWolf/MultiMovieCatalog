@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.perf.FirebasePerformance
 import com.multilaser.multimoviecatalog.R
 import com.multilaser.multimoviecatalog.adapters.*
 import com.multilaser.multimoviecatalog.models.Movie
