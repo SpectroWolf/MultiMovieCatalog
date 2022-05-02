@@ -12,8 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MultiMovieCatalog">
         <activity
+            android:name=".ui.SearchedMovie"
+            android:parentActivityName=".ui.MainActivity" />
+        <activity
+            android:name=".ui.MovieDetails"
+            android:parentActivityName=".ui.MainActivity" />
+        <activity
             android:name=".ui.MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
