@@ -13,4 +13,5 @@
     <color name="red">#FF0000</color>
     <color name="black_soft">#B3000000</color>
     <color name="btn">#A35467</color>
+    <color name="ic_launcher_background">#212121</color>
 </resources>

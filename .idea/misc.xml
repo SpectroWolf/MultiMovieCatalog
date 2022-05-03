@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/MultiMovieCatalog/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.37083333333333335" />
         <entry key="..\:/MultiMovieCatalog/app/src/main/res/drawable/ic_baseline_search_black.xml" value="0.18697916666666667" />
         <entry key="..\:/MultiMovieCatalog/app/src/main/res/drawable/ic_baseline_star_rate_12.xml" value="0.18697916666666667" />
         <entry key="..\:/MultiMovieCatalog/app/src/main/res/layout-v26/movies_details.xml" value="0.3546875" />
@@ -12,10 +13,12 @@
         <entry key="..\:/MultiMovieCatalog/app/src/main/res/layout/movies_details.xml" value="0.2884963768115942" />
         <entry key="..\:/MultiMovieCatalog/app/src/main/res/layout/search_result.xml" value="0.3546875" />
         <entry key="..\:/MultiMovieCatalog/app/src/main/res/layout/toolbar.xml" value="0.17083333333333334" />
+        <entry key="..\:/MultiMovieCatalog/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.37083333333333335" />
+        <entry key="..\:/MultiMovieCatalog/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.37083333333333335" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
