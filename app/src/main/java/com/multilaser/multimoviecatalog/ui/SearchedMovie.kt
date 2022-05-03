@@ -3,6 +3,7 @@ package com.multilaser.multimoviecatalog.ui
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -10,14 +11,16 @@ import androidx.recyclerview.widget.RecyclerView
 import com.multilaser.multimoviecatalog.R
 import com.multilaser.multimoviecatalog.adapters.SearchedMovieAdapter
 import com.multilaser.multimoviecatalog.models.Movie
-import com.multilaser.multimoviecatalog.repository.Repository
+import com.multilaser.multimoviecatalog.repositories.Repository
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.search_result.*
 import kotlinx.android.synthetic.main.toolbar.*
 
+@AndroidEntryPoint
 class SearchedMovie : AppCompatActivity() {
 
 
-    lateinit var viewModel: MainViewModel
+    private val viewModel: MainViewModel by viewModels()
     lateinit var searchedMovieAdapter: SearchedMovieAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,10 +43,7 @@ class SearchedMovie : AppCompatActivity() {
 
     @SuppressLint("NotifyDataSetChanged")
     private fun searchMovie() {
-        val repository = Repository()
-        val viewModelFactory = MainViewModelFactory(repository)
         val search: String? = intent.getStringExtra("search")
-        viewModel = ViewModelProvider(this, viewModelFactory).get(MainViewModel::class.java)
 
         if (search != null) {
             viewModel.searchMovie(search)
