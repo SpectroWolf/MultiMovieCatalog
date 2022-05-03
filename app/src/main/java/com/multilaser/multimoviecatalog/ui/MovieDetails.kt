@@ -111,7 +111,7 @@ class MovieDetails : AppCompatActivity() {
             } else {
                 Toast.makeText(
                     this@MovieDetails,
-                    "Erro ao buscar Filmes Recomendados",
+                    "Error on search Recommendations Movies",
                     Toast.LENGTH_SHORT
                 ).show()
             }

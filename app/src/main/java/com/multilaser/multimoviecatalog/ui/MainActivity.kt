@@ -70,7 +70,7 @@ class MainActivity : AppCompatActivity() {
                 if (search.isBlank()) {
                     Toast.makeText(
                         this,
-                        "Digite um filme para buscar.",
+                        "Type an movie name to search.",
                         Toast.LENGTH_SHORT
                     ).show()
                 } else {
@@ -89,7 +89,7 @@ class MainActivity : AppCompatActivity() {
             if (search.isBlank()) {
                 Toast.makeText(
                     this,
-                    "Digite um filme para buscar.",
+                    "Type an movie name to search.",
                     Toast.LENGTH_SHORT
                 ).show()
             } else {
@@ -115,7 +115,7 @@ class MainActivity : AppCompatActivity() {
             } else {
                 Toast.makeText(
                     this@MainActivity,
-                    "Erro ao buscar Filmes Populares.",
+                    "Error on search Popular Movies.",
                     Toast.LENGTH_SHORT
                 ).show()
             }
@@ -129,7 +129,7 @@ class MainActivity : AppCompatActivity() {
             } else {
                 Toast.makeText(
                     this@MainActivity,
-                    "Erro ao buscar Filmes Melhores Avaliados.",
+                    "Error on search Top Rated Movies.",
                     Toast.LENGTH_SHORT
                 ).show()
             }
@@ -143,7 +143,7 @@ class MainActivity : AppCompatActivity() {
             } else {
                 Toast.makeText(
                     this@MainActivity,
-                    "Erro ao buscar Filmes de Terror e Suspense.",
+                    "Error on search Horror and Thriller Movies.",
                     Toast.LENGTH_SHORT
                 ).show()
             }
@@ -157,7 +157,7 @@ class MainActivity : AppCompatActivity() {
             } else {
                 Toast.makeText(
                     this@MainActivity,
-                    "Erro ao buscar Filmes de Ação e Aventura.",
+                    "Error on search Action and Adventure Movies",
                     Toast.LENGTH_SHORT
                 ).show()
             }
@@ -171,7 +171,7 @@ class MainActivity : AppCompatActivity() {
             } else {
                 Toast.makeText(
                     this@MainActivity,
-                    "Erro ao buscar Filmes de Ficção Científica",
+                    "Error on search Scienci Fiction Movies",
                     Toast.LENGTH_SHORT
                 ).show()
             }

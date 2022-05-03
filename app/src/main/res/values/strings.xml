@@ -1,12 +1,12 @@
 <resources>
     <string name="app_name">Multi Movie Catalog</string>
-    <string name="busca">Busca</string>
-    <string name="filmes_populares">Filmes Populares</string>
-    <string name="melhores_avaliados">Melhores Avaliados</string>
-    <string name="terror_e_suspense">Terror e Suspense</string>
-    <string name="acao_e_aventura">Ação e Aventura</string>
-    <string name="sci_fi">Ficção Científica</string>
+    <string name="busca">Search</string>
+    <string name="filmes_populares">Popular Movies</string>
+    <string name="melhores_avaliados">Top Rated</string>
+    <string name="terror_e_suspense">Horror and Thriller</string>
+    <string name="acao_e_aventura">Action and Adventure</string>
+    <string name="sci_fi">Science Fiction</string>
     <string name="overview">Overview</string>
-    <string name="results_string">Resultados para</string>
+    <string name="results_string">Results for</string>
     <string name="recommendations">Recommendations</string>
 </resources>
