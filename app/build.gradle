@@ -73,5 +73,6 @@ dependencies {
 
     //Test
     testImplementation "io.mockk:mockk:1.10.0"
-    testImplementation "androidx.arch.core:core-testing:2.1.0.lifecycle_version"
+    testImplementation "androidx.arch.core:core-testing:2.1.0"
+
 }
