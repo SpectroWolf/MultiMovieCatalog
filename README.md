@@ -1,8 +1,8 @@
 # MultiMovieCatalog
 
-# Repositório criado como resposta ao desafio abaixo.
+## Repositório criado como resposta ao desafio abaixo.
 
-## Criado por Guilherme Goulart Cruvinel
+Criado por Guilherme Goulart Cruvinel
 
 # Desafio técnico - Dev Android Nativo
 
