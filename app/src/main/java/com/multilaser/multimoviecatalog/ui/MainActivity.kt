@@ -18,9 +18,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-    private val mainViewModel: MainViewModel by viewModels()
-
-    lateinit var viewModel: MainViewModel
+    private val viewModel: MainViewModel by viewModels()
     lateinit var popularMoviesAdapter: PopularMoviesAdapter
     lateinit var topRatedMoviesAdapter: TopRatedMoviesAdapter
     lateinit var terrorSuspenseMovieAdapter: TerrorSuspenseMovieAdapter
@@ -107,8 +105,8 @@ class MainActivity : AppCompatActivity() {
     private fun createMovieData() {
 
 
-        mainViewModel.getPopularMovieList()
-        mainViewModel.popularMovieList.observe(this, { response ->
+        viewModel.getPopularMovieList()
+        viewModel.popularMovieList.observe(this, { response ->
             if (response.isSuccessful) {
                 popularMoviesAdapter.setMovieList(response.body()?.movie_list as ArrayList<Movie>)
                 popularMoviesAdapter.notifyDataSetChanged()
@@ -121,8 +119,8 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
-        mainViewModel.getTopRatedMovieList()
-        mainViewModel.topRatedMovieList.observe(this, { response ->
+        viewModel.getTopRatedMovieList()
+        viewModel.topRatedMovieList.observe(this, { response ->
             if (response.isSuccessful) {
                 topRatedMoviesAdapter.setMovieList(response.body()?.movie_list as ArrayList<Movie>)
                 topRatedMoviesAdapter.notifyDataSetChanged()
@@ -135,8 +133,8 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
-        mainViewModel.getTerrorSuspenseMovieList("27,53")
-        mainViewModel.terrorSuspenseMovieList.observe(this, { response ->
+        viewModel.getTerrorSuspenseMovieList("27,53")
+        viewModel.terrorSuspenseMovieList.observe(this, { response ->
             if (response.isSuccessful) {
                 terrorSuspenseMovieAdapter.setMovieList(response.body()?.movie_list as ArrayList<Movie>)
                 terrorSuspenseMovieAdapter.notifyDataSetChanged()
@@ -149,8 +147,8 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
-        mainViewModel.getActionAdventureMovieList("12,28")
-        mainViewModel.actionAdventureMovieList.observe(this, { response ->
+        viewModel.getActionAdventureMovieList("12,28")
+        viewModel.actionAdventureMovieList.observe(this, { response ->
             if (response.isSuccessful) {
                 actionAdventureAdapter.setMovieList(response.body()?.movie_list as ArrayList<Movie>)
                 actionAdventureAdapter.notifyDataSetChanged()
@@ -163,8 +161,8 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
-        mainViewModel.getSciFiMovieList("878")
-        mainViewModel.sciFiMovieList.observe(this, { response ->
+        viewModel.getSciFiMovieList("878")
+        viewModel.sciFiMovieList.observe(this, { response ->
             if (response.isSuccessful) {
                 sciFiAdapter.setMovieList(response.body()?.movie_list as ArrayList<Movie>)
                 sciFiAdapter.notifyDataSetChanged()

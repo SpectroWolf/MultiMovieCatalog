@@ -19,7 +19,6 @@ import kotlinx.android.synthetic.main.toolbar.*
 @AndroidEntryPoint
 class SearchedMovie : AppCompatActivity() {
 
-
     private val viewModel: MainViewModel by viewModels()
     lateinit var searchedMovieAdapter: SearchedMovieAdapter
 
