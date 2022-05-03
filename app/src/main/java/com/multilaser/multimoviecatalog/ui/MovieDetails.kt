@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,16 +14,18 @@ import com.bumptech.glide.request.RequestOptions
 import com.multilaser.multimoviecatalog.R
 import com.multilaser.multimoviecatalog.adapters.RecommendationsAdapter
 import com.multilaser.multimoviecatalog.models.Movie
-import com.multilaser.multimoviecatalog.repository.Repository
+import com.multilaser.multimoviecatalog.repositories.Repository
 import com.multilaser.multimoviecatalog.utils.Constants
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.movies_details.*
 import kotlinx.android.synthetic.main.toolbar.*
 import retrofit2.Response
 
+@AndroidEntryPoint
 class MovieDetails : AppCompatActivity() {
 
-    private lateinit var viewModel: MainViewModel
+    private val viewModel: MainViewModel by viewModels()
     private lateinit var recommendationsAdapter: RecommendationsAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,9 +36,6 @@ class MovieDetails : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val id: String? = intent.getStringExtra("id")
-        val repository = Repository()
-        val viewModelFactory = MainViewModelFactory(repository)
-        viewModel = ViewModelProvider(this, viewModelFactory).get(MainViewModel::class.java)
 
         if (id != null) {
             viewModel.getMovieDetails(id)

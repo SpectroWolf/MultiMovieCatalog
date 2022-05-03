@@ -5,11 +5,14 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.multilaser.multimoviecatalog.models.Movie
 import com.multilaser.multimoviecatalog.models.MovieList
-import com.multilaser.multimoviecatalog.repository.Repository
+import com.multilaser.multimoviecatalog.repositories.Repository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import retrofit2.Response
+import javax.inject.Inject
 
-class MainViewModel(private val repository: Repository) : ViewModel() {
+@HiltViewModel
+class MainViewModel @Inject constructor (private val repository: Repository) : ViewModel() {
 
     val popularMovieList: MutableLiveData<Response<MovieList>> = MutableLiveData()
     val topRatedMovieList: MutableLiveData<Response<MovieList>> = MutableLiveData()

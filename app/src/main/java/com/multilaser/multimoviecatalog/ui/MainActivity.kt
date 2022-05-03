@@ -6,17 +6,19 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.inputmethod.EditorInfo
 import android.widget.Toast
-import androidx.lifecycle.ViewModelProvider
+import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.firebase.perf.FirebasePerformance
 import com.multilaser.multimoviecatalog.R
 import com.multilaser.multimoviecatalog.adapters.*
 import com.multilaser.multimoviecatalog.models.Movie
-import com.multilaser.multimoviecatalog.repository.Repository
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
+
+    private val mainViewModel: MainViewModel by viewModels()
 
     lateinit var viewModel: MainViewModel
     lateinit var popularMoviesAdapter: PopularMoviesAdapter
@@ -103,12 +105,10 @@ class MainActivity : AppCompatActivity() {
 
     @SuppressLint("NotifyDataSetChanged")
     private fun createMovieData() {
-        val repository = Repository()
-        val viewModelFactory = MainViewModelFactory(repository)
-        viewModel = ViewModelProvider(this, viewModelFactory).get(MainViewModel::class.java)
 
-        viewModel.getPopularMovieList()
-        viewModel.popularMovieList.observe(this, { response ->
+
+        mainViewModel.getPopularMovieList()
+        mainViewModel.popularMovieList.observe(this, { response ->
             if (response.isSuccessful) {
                 popularMoviesAdapter.setMovieList(response.body()?.movie_list as ArrayList<Movie>)
                 popularMoviesAdapter.notifyDataSetChanged()
@@ -121,8 +121,8 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
-        viewModel.getTopRatedMovieList()
-        viewModel.topRatedMovieList.observe(this, { response ->
+        mainViewModel.getTopRatedMovieList()
+        mainViewModel.topRatedMovieList.observe(this, { response ->
             if (response.isSuccessful) {
                 topRatedMoviesAdapter.setMovieList(response.body()?.movie_list as ArrayList<Movie>)
                 topRatedMoviesAdapter.notifyDataSetChanged()
@@ -135,8 +135,8 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
-        viewModel.getTerrorSuspenseMovieList("27,53")
-        viewModel.terrorSuspenseMovieList.observe(this, { response ->
+        mainViewModel.getTerrorSuspenseMovieList("27,53")
+        mainViewModel.terrorSuspenseMovieList.observe(this, { response ->
             if (response.isSuccessful) {
                 terrorSuspenseMovieAdapter.setMovieList(response.body()?.movie_list as ArrayList<Movie>)
                 terrorSuspenseMovieAdapter.notifyDataSetChanged()
@@ -149,8 +149,8 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
-        viewModel.getActionAdventureMovieList("12,28")
-        viewModel.actionAdventureMovieList.observe(this, { response ->
+        mainViewModel.getActionAdventureMovieList("12,28")
+        mainViewModel.actionAdventureMovieList.observe(this, { response ->
             if (response.isSuccessful) {
                 actionAdventureAdapter.setMovieList(response.body()?.movie_list as ArrayList<Movie>)
                 actionAdventureAdapter.notifyDataSetChanged()
@@ -163,8 +163,8 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
-        viewModel.getSciFiMovieList("878")
-        viewModel.sciFiMovieList.observe(this, { response ->
+        mainViewModel.getSciFiMovieList("878")
+        mainViewModel.sciFiMovieList.observe(this, { response ->
             if (response.isSuccessful) {
                 sciFiAdapter.setMovieList(response.body()?.movie_list as ArrayList<Movie>)
                 sciFiAdapter.notifyDataSetChanged()
