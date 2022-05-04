@@ -14,7 +14,7 @@ import retrofit2.Response
 import javax.inject.Inject
 
 @HiltViewModel
-class MainViewModel @Inject constructor(private val repository: MovieRepository) : ViewModel() {
+class MainViewModel @Inject constructor(private val repository: Repository) : ViewModel() {
 
     val popularMovieList: MutableLiveData<Resource<MovieList>> = MutableLiveData()
     val topRatedMovieList: MutableLiveData<Resource<MovieList>> = MutableLiveData()

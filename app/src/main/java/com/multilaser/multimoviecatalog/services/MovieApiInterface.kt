@@ -3,7 +3,6 @@ package com.multilaser.multimoviecatalog.services
 import com.multilaser.multimoviecatalog.models.Movie
 import com.multilaser.multimoviecatalog.models.MovieList
 import com.multilaser.multimoviecatalog.utils.Constants.Companion.API_KEY
-import com.multilaser.multimoviecatalog.utils.Resource
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path

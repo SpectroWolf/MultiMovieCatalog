@@ -16,13 +16,13 @@ class MovieRepository @Inject constructor(
             val response = movieApiInterface.getPopularMovieList()
             if (response.isSuccessful) {
                 response.body()?.let {
-                    return@let Resource.Success(it)
-                } ?: Resource.Error("An unknown error occurred getting Popular Movies", null)
+                    return@let Resource.success(it)
+                } ?: Resource.error("An unknown error occurred getting Popular Movies", null)
             } else {
-                Resource.Error("An unknown error occurred Popular Movies.", null)
+                Resource.error("An unknown error occurred Popular Movies.", null)
             }!!
         } catch (e: Exception){
-            Resource.Error("Couldn't reach the server. Check your internet connection.", null)
+            Resource.error("Couldn't reach the server. Check your internet connection.", null)
         }
     }
 
@@ -31,13 +31,13 @@ class MovieRepository @Inject constructor(
             val response = movieApiInterface.getTopRatedMovieList()
             if (response.isSuccessful) {
                 response.body()?.let {
-                    return@let Resource.Success(it)
-                } ?: Resource.Error("An unknown error occurred getting Top Rated Movies", null)
+                    return@let Resource.success(it)
+                } ?: Resource.error("An unknown error occurred getting Top Rated Movies", null)
             } else {
-                Resource.Error("An unknown error occurred Top Rated Movie.s", null)
+                Resource.error("An unknown error occurred Top Rated Movie.s", null)
             }!!
         } catch (e: Exception){
-            Resource.Error("Couldn't reach the server. Check your internet connection.", null)
+            Resource.error("Couldn't reach the server. Check your internet connection.", null)
         }
     }
 
@@ -46,13 +46,13 @@ class MovieRepository @Inject constructor(
             val response = movieApiInterface.searchMovie(search)
             if (response.isSuccessful) {
                 response.body()?.let {
-                    return@let Resource.Success(it)
-                } ?: Resource.Error("An unknown error occurred when searching a movie.", null)
+                    return@let Resource.success(it)
+                } ?: Resource.error("An unknown error occurred when searching a movie.", null)
             } else {
-                Resource.Error("An unknown error occurred when searching a movie.", null)
+                Resource.error("An unknown error occurred when searching a movie.", null)
             }!!
         } catch (e: Exception){
-            Resource.Error("Couldn't reach the server. Check your internet connection.", null)
+            Resource.error("Couldn't reach the server. Check your internet connection.", null)
         }
     }
 
@@ -61,13 +61,13 @@ class MovieRepository @Inject constructor(
             val response = movieApiInterface.getMovieDetails(id)
             if (response.isSuccessful) {
                 response.body()?.let {
-                    return@let Resource.Success(it)
-                } ?: Resource.Error("An unknown error occurred getting Movie details.", null)
+                    return@let Resource.success(it)
+                } ?: Resource.error("An unknown error occurred getting Movie details.", null)
             } else {
-                Resource.Error("An unknown error occurred getting Movie details.", null)
+                Resource.error("An unknown error occurred getting Movie details.", null)
             }!!
         } catch (e: Exception){
-            Resource.Error("Couldn't reach the server. Check your internet connection.", null)
+            Resource.error("Couldn't reach the server. Check your internet connection.", null)
         }
     }
 
@@ -76,13 +76,13 @@ class MovieRepository @Inject constructor(
             val response = movieApiInterface.getMovieByGenres(id)
             if (response.isSuccessful) {
                 response.body()?.let {
-                    return@let Resource.Success(it)
-                } ?: Resource.Error("An unknown error occurred getting Movie by Genre", null)
+                    return@let Resource.success(it)
+                } ?: Resource.error("An unknown error occurred getting Movie by Genre", null)
             } else {
-                Resource.Error("An unknown error occurred getting Movie by Genre.", null)
+                Resource.error("An unknown error occurred getting Movie by Genre.", null)
             }!!
         } catch (e: Exception){
-            Resource.Error("Couldn't reach the server. Check your internet connection.", null)
+            Resource.error("Couldn't reach the server. Check your internet connection.", null)
         }
     }
 
@@ -91,13 +91,13 @@ class MovieRepository @Inject constructor(
             val response = movieApiInterface.getRecommendations(id)
             if (response.isSuccessful) {
                 response.body()?.let {
-                    return@let Resource.Success(it)
-                } ?: Resource.Error("An unknown error occurred getting Movies Recommendations", null)
+                    return@let Resource.success(it)
+                } ?: Resource.error("An unknown error occurred getting Movies Recommendations", null)
             } else {
-                Resource.Error("An unknown error occurred getting Movies Recommendations.", null)
+                Resource.error("An unknown error occurred getting Movies Recommendations.", null)
             }!!
         } catch (e: Exception){
-            Resource.Error("Couldn't reach the server. Check your internet connection.", null)
+            Resource.error("Couldn't reach the server. Check your internet connection.", null)
         }
     }
 }
