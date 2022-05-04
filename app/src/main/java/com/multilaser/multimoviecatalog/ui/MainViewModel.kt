@@ -5,23 +5,25 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.multilaser.multimoviecatalog.models.Movie
 import com.multilaser.multimoviecatalog.models.MovieList
+import com.multilaser.multimoviecatalog.repositories.MovieRepository
 import com.multilaser.multimoviecatalog.repositories.Repository
+import com.multilaser.multimoviecatalog.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import retrofit2.Response
 import javax.inject.Inject
 
 @HiltViewModel
-class MainViewModel @Inject constructor (private val repository: Repository) : ViewModel() {
+class MainViewModel @Inject constructor(private val repository: MovieRepository) : ViewModel() {
 
-    val popularMovieList: MutableLiveData<Response<MovieList>> = MutableLiveData()
-    val topRatedMovieList: MutableLiveData<Response<MovieList>> = MutableLiveData()
-    val searchMovieList: MutableLiveData<Response<MovieList>> = MutableLiveData()
-    val movieDetails: MutableLiveData<Response<Movie>> = MutableLiveData()
-    val terrorSuspenseMovieList: MutableLiveData<Response<MovieList>> = MutableLiveData()
-    val actionAdventureMovieList: MutableLiveData<Response<MovieList>> = MutableLiveData()
-    val sciFiMovieList: MutableLiveData<Response<MovieList>> = MutableLiveData()
-    val recommendationsList: MutableLiveData<Response<MovieList>> = MutableLiveData()
+    val popularMovieList: MutableLiveData<Resource<MovieList>> = MutableLiveData()
+    val topRatedMovieList: MutableLiveData<Resource<MovieList>> = MutableLiveData()
+    val searchMovieList: MutableLiveData<Resource<MovieList>> = MutableLiveData()
+    val movieDetails: MutableLiveData<Resource<Movie>> = MutableLiveData()
+    val terrorSuspenseMovieList: MutableLiveData<Resource<MovieList>> = MutableLiveData()
+    val actionAdventureMovieList: MutableLiveData<Resource<MovieList>> = MutableLiveData()
+    val sciFiMovieList: MutableLiveData<Resource<MovieList>> = MutableLiveData()
+    val recommendationsList: MutableLiveData<Resource<MovieList>> = MutableLiveData()
 
     fun getPopularMovieList() {
         viewModelScope.launch {

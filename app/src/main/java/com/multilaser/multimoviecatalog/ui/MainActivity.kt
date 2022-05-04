@@ -104,16 +104,15 @@ class MainActivity : AppCompatActivity() {
     @SuppressLint("NotifyDataSetChanged")
     private fun createMovieData() {
 
-
         viewModel.getPopularMovieList()
         viewModel.popularMovieList.observe(this, { response ->
-            if (response.isSuccessful) {
-                popularMoviesAdapter.setMovieList(response.body()?.movie_list as ArrayList<Movie>)
+            if (response.data != null) {
+                popularMoviesAdapter.setMovieList(response.data.movie_list as ArrayList<Movie>)
                 popularMoviesAdapter.notifyDataSetChanged()
             } else {
                 Toast.makeText(
                     this@MainActivity,
-                    "Error on search Popular Movies.",
+                    response.message,
                     Toast.LENGTH_SHORT
                 ).show()
             }
@@ -121,13 +120,13 @@ class MainActivity : AppCompatActivity() {
 
         viewModel.getTopRatedMovieList()
         viewModel.topRatedMovieList.observe(this, { response ->
-            if (response.isSuccessful) {
-                topRatedMoviesAdapter.setMovieList(response.body()?.movie_list as ArrayList<Movie>)
+            if (response.data != null) {
+                topRatedMoviesAdapter.setMovieList(response.data.movie_list as ArrayList<Movie>)
                 topRatedMoviesAdapter.notifyDataSetChanged()
             } else {
                 Toast.makeText(
                     this@MainActivity,
-                    "Error on search Top Rated Movies.",
+                    response.message,
                     Toast.LENGTH_SHORT
                 ).show()
             }
@@ -135,8 +134,8 @@ class MainActivity : AppCompatActivity() {
 
         viewModel.getTerrorSuspenseMovieList("27,53")
         viewModel.terrorSuspenseMovieList.observe(this, { response ->
-            if (response.isSuccessful) {
-                terrorSuspenseMovieAdapter.setMovieList(response.body()?.movie_list as ArrayList<Movie>)
+            if (response.data != null) {
+                terrorSuspenseMovieAdapter.setMovieList(response.data.movie_list as ArrayList<Movie>)
                 terrorSuspenseMovieAdapter.notifyDataSetChanged()
             } else {
                 Toast.makeText(
@@ -149,8 +148,8 @@ class MainActivity : AppCompatActivity() {
 
         viewModel.getActionAdventureMovieList("12,28")
         viewModel.actionAdventureMovieList.observe(this, { response ->
-            if (response.isSuccessful) {
-                actionAdventureAdapter.setMovieList(response.body()?.movie_list as ArrayList<Movie>)
+            if (response.data != null) {
+                actionAdventureAdapter.setMovieList(response.data.movie_list as ArrayList<Movie>)
                 actionAdventureAdapter.notifyDataSetChanged()
             } else {
                 Toast.makeText(
@@ -163,13 +162,13 @@ class MainActivity : AppCompatActivity() {
 
         viewModel.getSciFiMovieList("878")
         viewModel.sciFiMovieList.observe(this, { response ->
-            if (response.isSuccessful) {
-                sciFiAdapter.setMovieList(response.body()?.movie_list as ArrayList<Movie>)
+            if (response.data != null) {
+                sciFiAdapter.setMovieList(response.data.movie_list as ArrayList<Movie>)
                 sciFiAdapter.notifyDataSetChanged()
             } else {
                 Toast.makeText(
                     this@MainActivity,
-                    "Error on search Scienci Fiction Movies",
+                    "Error on search Science Fiction Movies",
                     Toast.LENGTH_SHORT
                 ).show()
             }

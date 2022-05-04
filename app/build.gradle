@@ -74,7 +74,7 @@ dependencies {
     androidTestImplementation 'androidx.test:rules:1.4.0'
 
     //Test
-    testImplementation "io.mockk:mockk:1.10.0"
+    //testImplementation "org.mockito.kotlin:mockito-kotlin:1.10.19"
     testImplementation "androidx.arch.core:core-testing:2.1.0"
 
     //Hilt
