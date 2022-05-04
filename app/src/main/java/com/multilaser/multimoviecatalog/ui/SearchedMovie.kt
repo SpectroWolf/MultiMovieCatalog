@@ -49,13 +49,13 @@ class SearchedMovie : AppCompatActivity() {
         }
 
         viewModel.searchMovieList.observe(this, { response ->
-            if (response.isSuccessful) {
-                searchedMovieAdapter.setMovieList(response.body()?.movie_list as ArrayList<Movie>)
+            if (response.data != null) {
+                searchedMovieAdapter.setMovieList(response.data.movie_list as ArrayList<Movie>)
                 searchedMovieAdapter.notifyDataSetChanged()
             } else {
                 Toast.makeText(
                     this,
-                    "Error on search.",
+                    response.message,
                     Toast.LENGTH_SHORT
                 ).show()
             }
