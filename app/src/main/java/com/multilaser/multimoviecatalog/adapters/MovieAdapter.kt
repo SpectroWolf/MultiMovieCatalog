@@ -10,11 +10,11 @@ import com.bumptech.glide.Glide
 import com.multilaser.multimoviecatalog.R
 import com.multilaser.multimoviecatalog.models.Movie
 import com.multilaser.multimoviecatalog.ui.MovieDetails
-import com.multilaser.multimoviecatalog.utils.Constants
+import com.multilaser.multimoviecatalog.utils.Constants.Companion.POSTER_BASE_URL
 import kotlinx.android.synthetic.main.movie_item.view.*
 
-class TerrorSuspenseMovieAdapter(private val context: Context) :
-    RecyclerView.Adapter<TerrorSuspenseMovieAdapter.GenreViewHolder>() {
+class MovieAdapter(private val context: Context) :
+    RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
 
     var movies = ArrayList<Movie>()
 
@@ -22,8 +22,9 @@ class TerrorSuspenseMovieAdapter(private val context: Context) :
         this.movies = data
     }
 
-    class GenreViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        fun bindMovies(data: Movie, context: Context) {var genre = ""
+    class MovieViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        fun bindMovieList(data: Movie, context: Context) {
+            var genre = ""
             val genres: List<Int> = data.genre_ids
             var genresName = ""
 
@@ -61,7 +62,7 @@ class TerrorSuspenseMovieAdapter(private val context: Context) :
             itemView.tv_movie_item_movie_title.text = data.title
             itemView.tv_movie_item_genres.text = genresName
             Glide.with(itemView)
-                .load(Constants.POSTER_BASE_URL + data.poster_path)
+                .load(POSTER_BASE_URL + data.poster_path)
                 .into(itemView.iv_movie_poster)
 
             itemView.setOnClickListener {
@@ -72,14 +73,15 @@ class TerrorSuspenseMovieAdapter(private val context: Context) :
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GenreViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.movie_item, parent, false)
-        return GenreViewHolder(view)
+        return MovieViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: GenreViewHolder, position: Int) {
-        holder.bindMovies(movies[position], context)
+    override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
+        holder.bindMovieList(movies[position], context)
     }
 
     override fun getItemCount(): Int = movies.size
+
 }

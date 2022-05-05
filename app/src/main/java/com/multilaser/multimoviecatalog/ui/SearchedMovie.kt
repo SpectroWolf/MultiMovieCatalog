@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.multilaser.multimoviecatalog.R
+import com.multilaser.multimoviecatalog.adapters.MovieAdapter
 import com.multilaser.multimoviecatalog.adapters.SearchedMovieAdapter
 import com.multilaser.multimoviecatalog.models.Movie
 import com.multilaser.multimoviecatalog.repositories.Repository

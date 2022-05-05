@@ -6,28 +6,25 @@ import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.multilaser.multimoviecatalog.R
-import com.multilaser.multimoviecatalog.adapters.RecommendationsAdapter
+import com.multilaser.multimoviecatalog.adapters.MovieAdapter
 import com.multilaser.multimoviecatalog.models.Movie
-import com.multilaser.multimoviecatalog.repositories.Repository
 import com.multilaser.multimoviecatalog.utils.Constants
 import com.multilaser.multimoviecatalog.utils.Resource
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.movies_details.*
 import kotlinx.android.synthetic.main.toolbar.*
-import retrofit2.Response
 
 @AndroidEntryPoint
 class MovieDetails : AppCompatActivity() {
 
     private val viewModel: MainViewModel by viewModels()
-    private lateinit var recommendationsAdapter: RecommendationsAdapter
+    private lateinit var recommendationsAdapter: MovieAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,7 +51,7 @@ class MovieDetails : AppCompatActivity() {
     private fun initRecycler() {
         rv_recommendations.layoutManager =
             LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
-        recommendationsAdapter = RecommendationsAdapter(this)
+        recommendationsAdapter = MovieAdapter(this)
         rv_recommendations.adapter = recommendationsAdapter
     }
 

@@ -19,11 +19,11 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity() {
 
     private val viewModel: MainViewModel by viewModels()
-    lateinit var popularMoviesAdapter: PopularMoviesAdapter
-    lateinit var topRatedMoviesAdapter: TopRatedMoviesAdapter
-    lateinit var terrorSuspenseMovieAdapter: TerrorSuspenseMovieAdapter
-    lateinit var actionAdventureAdapter: ActionAdventureAdapter
-    lateinit var sciFiAdapter: SciFiAdapter
+    lateinit var popularMoviesAdapter: MovieAdapter
+    lateinit var topRatedMoviesAdapter: MovieAdapter
+    lateinit var terrorSuspenseMovieAdapter: MovieAdapter
+    lateinit var actionAdventureAdapter: MovieAdapter
+    lateinit var sciFiAdapter: MovieAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,24 +40,24 @@ class MainActivity : AppCompatActivity() {
 
         rv_popular_movie_list.layoutManager =
             LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
-        popularMoviesAdapter = PopularMoviesAdapter(this)
+        popularMoviesAdapter = MovieAdapter(this)
         rv_popular_movie_list.adapter = popularMoviesAdapter
 
         rv_top_rated_movies.layoutManager =
             LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
-        topRatedMoviesAdapter = TopRatedMoviesAdapter(this)
+        topRatedMoviesAdapter = MovieAdapter(this)
         rv_top_rated_movies.adapter = topRatedMoviesAdapter
 
         rv_genre_terror.layoutManager = LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
-        terrorSuspenseMovieAdapter = TerrorSuspenseMovieAdapter(this)
+        terrorSuspenseMovieAdapter = MovieAdapter(this)
         rv_genre_terror.adapter = terrorSuspenseMovieAdapter
 
         rv_genre_action.layoutManager = LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
-        actionAdventureAdapter = ActionAdventureAdapter(this)
+        actionAdventureAdapter = MovieAdapter(this)
         rv_genre_action.adapter = actionAdventureAdapter
 
         rv_sci_fi.layoutManager = LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
-        sciFiAdapter = SciFiAdapter(this)
+        sciFiAdapter = MovieAdapter(this)
         rv_sci_fi.adapter = sciFiAdapter
 
     }
